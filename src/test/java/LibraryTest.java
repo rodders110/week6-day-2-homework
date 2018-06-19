@@ -14,7 +14,7 @@ public class LibraryTest {
         Book book1 = new Book("Crime");
         Book book2 = new Book("Romance");
         Book book3 = new Book("Crime");
-        Book book4 = new Book("Sci-fi");
+        Book book4 = new Book("Crime");
         Book book5 = new Book("Romance");
         this.library.getStock(book1);
         this.library.getStock(book2);
@@ -25,18 +25,18 @@ public class LibraryTest {
 
     @Test
     public void canGetBook(){
-        assertEquals(3, library.countBooks());
+        assertEquals(4, library.countBooks());
 
     }
 
     @Test
     public void cannotAddBookWhenFull(){
-        assertEquals(3, this.library.countBooks());
+        assertEquals(4, this.library.countBooks());
     }
 
     @Test
     public void canUpdateRecord(){
         library.updateRecord();
-        assertEquals("2", this.library.showRecord("Crime").toString());
+        assertEquals("3", this.library.showRecord("Crime").toString());
     }
 }

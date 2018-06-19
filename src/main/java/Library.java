@@ -16,7 +16,7 @@ public class Library {
     public Library(String name){
         this.name = name;
         this.stock = new ArrayList<Book>();
-        this.capacity = 3;
+        this.capacity = 4;
         this.record = new HashMap<String, Integer>();
     }
 
@@ -39,7 +39,8 @@ public class Library {
         int i = 0;
         for(Book book : this.stock){
             if(this.record.containsKey(book.getGenre())){
-                this.record.computeIfPresent(book.getGenre(), (k,v) -> v += 1);
+                int value = this.record.get(book.getGenre());
+                this.record.put(book.getGenre(), value + 1);
             }else{
                 this.record.put(book.getGenre(), 1 );
             }
